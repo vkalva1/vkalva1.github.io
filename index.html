@@ -1,11 +1,133 @@
-<!DOCTYPE html>
 <html>
-    <head>
-    </head>
-    <body>
-        <h1>My First Page</h1>
-        <p>This is my first page.</p>
-        <hr/>
-        <p>This is the footer - all rights are reserved to me.</p>
-    </body>
+<title>
+MyWeb
+</title>
+<head>
+<style>
+.rows{
+ display: inline;
+ }
+
+ #feelings li{
+    display: inline;
+	
+}
+#feelings li item{
+display:block;
+}
+
+.textfield
+{
+padding:5px;
+padding-top:5px;
+color:blue;
+}
+.points{
+font:100px;
+color:blue;
+}
+.righty{
+text-align:right;
+
+}
+</style>
+
+</head>
+<h2 style="color:purple; text-align:center;"> Tell the Feeling </h2>
+<body>
+<h1 style="color:#800080; text-align:center;"> Your Total Points are :<output id="tps"/></h1>
+<ul id="feelings" class="rows">
+<li>  <p class="item"><img src="happy.jpg"/><br/><br/> <input  class="textfield" id="f1" type="text" value="" onchange="testing('f1',this.value);"/> <output class="points" id="f1p"/>
+<div id="tiger"  class="righty" > <img src="tiger.jpg"/></div></p>
+
+</li>
+<li> <p class="item"><img src="angry.jpg"/><br/><br/><input  class="textfield" id="f2" type="text" value="" onchange="testing('f2',this.value);"/> <output class="points" id="f2p"/>
+<div id="wfm"  class="righty"> <img src="wolfandmoon.jpg"/></div</p>
+</li>
+<li> <p class="item"><img src="worry.jpg"/><br/><br/><input  class="textfield" id="f3" type="text" value="" onchange="testing('f3',this.value);"/><output class="points" id="f3p"/>
+<div id="eph"  class="righty"> <img src="elephant.jpg"/></div></p>
+</li>
+
+</ul>
+
+
+
+</ul>
+<script>
+var tp=0;
+
+document.getElementById("tiger").style.visibility='hidden';
+document.getElementById("wfm").style.visibility='hidden';
+document.getElementById("eph").style.visibility='hidden';
+
+function testing(divid,val)
+{
+ var  ansr= val.toLowerCase();
+ var pt=divid+'p';
+ if(divid=='f1')
+ {
+ if(ansr.includes('happy'))
+ {
+ document.getElementById(pt).value='You won 2 Points for this';
+tp=tp+2;
+document.getElementById("tps").value=tp;
+document.getElementById("tiger").style.visibility='visible';
+ 
+ }else
+ {
+ document.getElementById(pt).value='Please try again';
+ 
+ }
+ //var text = document.getElementById(elemId).value;
+ 
+ //alert(text);
+ 
+ }
+ if(divid=='f2')
+ {
+ if(ansr.includes('angry'))
+ {
+ document.getElementById(pt).value='You won 4 Points for this';
+ tp=tp+4;
+ document.getElementById("tps").value=tp;
+ document.getElementById("wfm").style.visibility='visible';
+ 
+ }else
+ {
+ document.getElementById(pt).value='Please try again';
+ 
+ }
+ //var text = document.getElementById(elemId).value;
+ 
+ //alert(text);
+ 
+ }
+ if(divid=='f3')
+ {
+ if(ansr.includes('worr'))
+ {
+ document.getElementById(pt).value='You won 6 Points for this';
+ //alert('You won 2 points');
+ tp=tp+6;
+ document.getElementById("tps").value=tp;
+ document.getElementById("eph").style.visibility='visible';
+ }else
+ {
+ document.getElementById(pt).value='Please try again';
+ 
+ }
+ //var text = document.getElementById(elemId).value;
+ 
+ //alert(text);
+ 
+ }
+ 
+ }
+
+
+</script>
+
+
+</body>
+
 </html>
